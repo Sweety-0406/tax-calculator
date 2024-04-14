@@ -1,0 +1,411 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-container {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-type {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+/* gross question mark */
+.tooltip-trigger-gross {
+    position: relative;
+    cursor: pointer;
+}
+
+.tooltip-trigger-gross::after {
+    content: "?";
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    width: 17px;
+    height: 17px;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 100%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #888;
+}
+
+.tooltip-trigger-gross:hover::before {
+    content: "Gross annual income is your total salary in a year before any deductions";
+    position: absolute;
+    top: -280%;
+    left: 120px;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    width: 200px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip-trigger-gross:hover::before {
+    opacity: 1;
+}
+
+
+/* extra question mark */
+.tooltip-trigger-extra {
+    position: relative;
+    cursor: pointer;
+}
+
+.tooltip-trigger-extra::after {
+    content: "?";
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    width: 17px;
+    height: 17px;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 100%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #888;
+}
+
+.tooltip-trigger-extra:hover::before {
+    content: "Extra income is your extra earned income except salary";
+    position: absolute;
+    top: -210%;
+    left: 120px;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    width: 200px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip-trigger-extra:hover::before {
+    opacity: 1;
+}
+
+
+/* age question mark */
+.tooltip-trigger-age {
+    position: relative;
+    cursor: pointer;
+}
+
+.tooltip-trigger-age::after {
+    content: "?";
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    width: 17px;
+    height: 17px;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 100%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #888;
+}
+
+.tooltip-trigger-age:hover::before {
+    content: "Enter your valid current age";
+    position: absolute;
+    top: -120%;
+    left: 120px;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    width: 200px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip-trigger-age:hover::before {
+    opacity: 1;
+}
+
+
+/* deduction question mark */
+.tooltip-trigger-deduction {
+    position: relative;
+    cursor: pointer;
+}
+
+.tooltip-trigger-deduction::after {
+    content: "?";
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    width: 17px;
+    height: 17px;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 100%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #888;
+}
+
+.tooltip-trigger-deduction:hover::before {
+    content: "Add a total deduction money that lost";
+    position: absolute;
+    top: -120%;
+    left: 120px;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    width: 200px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip-trigger-deduction:hover::before {
+    opacity: 1;
+}
+
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 5%;
+    width: 70%;
+    height: 50%;
+}
+
+#closeMark{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#closeMark:hover,
+#closeMark:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+/* this is for  annual income error */
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon .icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background-color: #e3e0e0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.input-with-icon input {
+    padding-right: 4px; /* Adjust padding to accommodate the icon */
+}
+
+.icon::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(20, 20, 20, 0.7);
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    width: 90px;
+    border-radius: 5px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.icon:hover::after {
+    opacity: 1;
+}
+
+.icon:hover::after {
+    content: "Please enter number only";
+}
+
+
+
+/* this is for  extra income error */
+.input-with-icon2 {
+    position: relative;
+}
+
+.input-with-icon2 .icon2 {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background-color: #e3e0e0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.input-with-icon2 input {
+    padding-right: 4px; /* Adjust padding to accommodate the icon */
+}
+
+.icon2::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(20, 20, 20, 0.7);
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    width: 90px;
+    border-radius: 5px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.icon2:hover::after {
+    opacity: 1;
+}
+
+.icon2:hover::after {
+    content: "Please enter number only";
+}
+
+
+
+/* this is for  deduction error */
+.input-with-icon3 {
+    position: relative;
+}
+
+.input-with-icon3 .icon3 {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background-color: #e3e0e0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.input-with-icon3 input {
+    padding-right: 4px; /* Adjust padding to accommodate the icon */
+}
+
+.icon3::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(20, 20, 20, 0.7);
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    width: 90px;
+    border-radius: 5px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.icon3:hover::after {
+    opacity: 1;
+}
+
+.icon3:hover::after {
+    content: "Please enter number only";
+}

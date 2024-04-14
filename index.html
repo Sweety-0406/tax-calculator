@@ -1,0 +1,68 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+        <h1>Tax Calculator</h1>
+        <div class="input-container">
+            <label for="gross-income">Gross Annual Income <span class="tooltip-trigger-gross" data-bs-toggle="tooltip" ></span></label>
+            <div class="input-with-icon">
+              <input class="input-type" id="gross-income">
+              <div class="icon">!</div>
+            </div>
+        </div>
+        <div class="input-container">
+            <label for="extra-income">Extra Income <span class="tooltip-trigger-extra" data-bs-toggle="tooltip" ></span></label>
+            <div class="input-with-icon2">
+              <input class="input-type" id="extra-income">
+              <div class="icon2">!</div>
+            </div>
+        </div>
+        <div class="input-container">
+            <label for="age">Enter age group <span class="tooltip-trigger-age"></span></label>
+            <select class="input-type" id="age">
+                <option value="<40">&lt;40</option>
+                <option value="≥40 &lt;60">&ge;40 &lt;60</option>
+                <option value="≥60">&ge;60</option>
+            </select>
+        </div>
+        <div class="input-container">
+            <label for="deductions">Total Applicable Deductions<span class="tooltip-trigger-deduction" data-bs-toggle="tooltip" ></span></label>
+            <div class="input-with-icon3">
+              <input class="input-type" id="deductions">
+              <div class="icon3">!</div>
+            </div>
+        </div>
+        <button  id="submit-btn">Calculate Tax</button>
+        <div id="result"></div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="result-modal">
+        <div class="modal-content">
+            <div style="text-align: center; margin-top: 130px;">
+                <div style="font-size: 30px;">Your overall income will be</div>
+                <div style="font-size: 20px;" id="modal-result"></div>
+                <div style="margin-bottom: 5px;">after tax deduction</div>
+                <button id="closeBtn" style="width: 70px;" class="close">close</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+
